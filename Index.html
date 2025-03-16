@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capability Matrix Report</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
+
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .toggle-button {
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        .toggle-button:hover {
+            text-decoration: underline;
+        }
+    /* Reduce the width of the select element */
+    .Multiselect {
+        width: 200px; /* Adjust this value to your desired width */
+    }
+
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Capability Matrix Report</h1>
+    <form id="checkboxForm">
+        <ul id="tree">
+            <li>
+                <span class="toggle-button">+</span>
+                <input type="checkbox" name="Bulk" class="parent"> Bulk
+                <ul style="display: none;">
+                    <li>
+                        <span class="toggle-button">+</span>
+                        <input type="checkbox" name="Nonsterile" class="parent"> Nonsterile
+                        <ul style="display: none;">
+                            <li>
+                                <span class="toggle-button">+</span>
+                                <input type="checkbox" name="Liquide" class="parent"> Liquide
+                                <ul style="display: none;">
+                                    <li><input type="checkbox" name="Bottles" class="child"> Bottles</li>
+                                    <li><input type="checkbox" name="Drops" class="child"> Drops</li>
+                                    <li><input type="checkbox" name="Sache" class="child"> Sache</li>
+                                    <li><input type="checkbox" name="Spray" class="child"> Spray</li>
+                                    <li><input type="checkbox" name="Syrup" class="child"> Syrup</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="toggle-button">+</span>
+                                <input type="checkbox" name="Semi-Solid" class="parent"> Semi-Solid
+                                <ul style="display: none;">
+                                    <li><input type="checkbox" name="Cream" class="child"> Cream</li>
+                                    <li><input type="checkbox" name="Gels" class="child"> Gels</li>
+                                    <li><input type="checkbox" name="Ointment" class="child"> Ointment</li>
+                                    <li><input type="checkbox" name="Other" class="child"> Other</li>
+                                    <li><input type="checkbox" name="Soft Capsules" class="child"> Soft Capsules</li>
+                                    <li><input type="checkbox" name="Suppositories" class="child"> Suppositories</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="toggle-button">+</span>
+                                <input type="checkbox" name="Solid" class="parent"> Solid
+                                <ul style="display: none;">
+                                    <li><input type="checkbox" name="Cream" class="child"> Cream</li>
+                                    <li><input type="checkbox" name="Gels" class="child"> Gels</li>
+                                    <li><input type="checkbox" name="Ointment" class="child"> Ointment</li>
+                                    <li><input type="checkbox" name="Other" class="child"> Other</li>
+                                    <li><input type="checkbox" name="Soft Capsules" class="child"> Soft Capsules</li>
+                                    <li><input type="checkbox" name="Suppositories" class="child"> Suppositories</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle-button">+</span>
+                        <input type="checkbox" name="Sterile" class="parent"> Sterile
+                        <ul style="display: none;">
+                            <li><input type="checkbox" name="Ampouls" class="child"> Ampouls</li>
+                            <li><input type="checkbox" name="Bottles" class="child"> Bottles</li>
+                            <li><input type="checkbox" name="Drops" class="child"> Drops</li>
+                            <li><input type="checkbox" name="Ophthalmic Ointments" class="child"> Ophthalmic Ointments</li>
+                            <li><input type="checkbox" name="Single dose" class="child"> Single dose</li>
+                            <li><input type="checkbox" name="Spray" class="child"> Spray</li>
+                            <li><input type="checkbox" name="Syrings" class="child"> Syrings</li>
+                            <li><input type="checkbox" name="Vials" class="child"> Vials</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="toggle-button">+</span>
+                <input type="checkbox" name="Bulk" class="parent"> Packaging
+                <ul style="display: none;">
+                    <li>
+                        <span class="toggle-button">+</span>
+                        <input type="checkbox" name="Nonsterile" class="parent"> Primary Packaging
+                        <ul style="display: none;">
+                            <li>
+                                <span class="toggle-button">+</span>
+                                <input type="checkbox" name="Liquide" class="parent"> Solid/Semi-Solid
+                                <ul style="display: none;">
+                                    <li><input type="checkbox" name="Bottles" class="child"> Blisters</li>
+                                    <li><input type="checkbox" name="Drops" class="child"> Bottles</li>
+                                    <li><input type="checkbox" name="Sache" class="child"> Other</li>
+                                    <li><input type="checkbox" name="Spray" class="child"> Sache</li>
+                                    <li><input type="checkbox" name="Syrup" class="child"> Sticks</li>
+                                    <li><input type="checkbox" name="Syrup" class="child"> Tubes</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle-button">+</span>
+                        <input type="checkbox" name="Nonsterile" class="parent">Secondary Packaging
+                        <ul style="display: none;">
+                            <li>
+                                <span class="toggle-button">+</span>
+                                <input type="checkbox" name="Liquide" class="parent"> AllForms
+                                <ul style="display: none;">
+                                    <li><input type="checkbox" name="Bottles" class="child"> Ampoules</li>
+                                    <li><input type="checkbox" name="Drops" class="child"> Blisters</li>
+                                    <li><input type="checkbox" name="Sache" class="child">Bottles</li>
+                                    <li><input type="checkbox" name="Spray" class="child"> Bundling Packs</li>
+                                    <li><input type="checkbox" name="Syrup" class="child"> Glass Vials</li>
+                                    <li><input type="checkbox" name="Syrup" class="child"> Hospital Packs</li>
+                                    <li><input type="checkbox" name="Bottles" class="child"> Other</li>
+                                    <li><input type="checkbox" name="Drops" class="child"> Plastic Vials</li>
+                                    <li><input type="checkbox" name="Sache" class="child">Sache</li>
+                                    <li><input type="checkbox" name="Spray" class="child"> Single Dose</li>
+                                    <li><input type="checkbox" name="Syrup" class="child"> Spray</li>
+                                    <li><input type="checkbox" name="Syrup" class="child"> Suppositories</li>
+                                    <li><input type="checkbox" name="Drops" class="child"> Syrings</li>
+                                    <li><input type="checkbox" name="Sache" class="child">Tubes</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <br>
+    </form>
+</div>
+<div class ="Multiselect">
+    <br>
+  <header>Accreditations</header>
+  <br>
+  <select name="countries" id="Multiselect1" multiple="multiple">
+    <option value="0">EMA approval</option>
+    <option value="1">EU GMP</option>
+    <option value="2">FDA approval</option>
+    <option value="3">FSSC 22000</option>
+    <option value="4">ISO 13485</option>
+    <option value="5">Other</option>
+  </select>
+  <br>
+  <br>
+  <header>Offered Services</header>
+  <br>
+  <select name="coun" id="Multiselect2" multiple="multiple">
+    <option value="javascript">Bulk Production</option>
+    <option value="php">Development/Pilot Production</option>
+    <option value="java">GDP Warehouse</option>
+    <option value="golang">Other</option>
+    <option value="python">Packaging</option>
+    <option value="c#">QC Lab-Biological</option>
+    <option value="C++">QC Lab-Micro</option>
+    <option value="erlang">QC Lab-Phisical/Chemical</option>
+    <option value="javascript">QP Release</option>
+  </select>
+  <br>
+  <br>
+  <header>Product Types</header>
+  <br>
+  <select name="countries" id="Multiselect3" multiple="multiple">
+    <option value="javascript">Beta Lactam</option>
+    <option value="php">Biologics</option>
+    <option value="java">Chemical</option>
+    <option value="golang">Cosmetics</option>
+    <option value="python">Food Supplements</option>
+    <option value="c#">Herbal</option>
+    <option value="C++">Hormons</option>
+    <option value="erlang">Narcotics</option>
+    <option value="javascript">Onco/Cytotoxic</option>
+    <option value="php">Other</option>
+    <option value="java">Probiotics</option>
+    <option value="golang">Vaccines</option>
+    <option value="python">VET-Veterinarian</option>
+  </select>
+  <button type="submit">Submit</button>
+</select>
+<script>
+    new MultiSelectTag('Multiselect1', {
+        rounded: true,    // default true
+        shadow: true,      // default false
+        placeholder: 'Search',  // default Search...
+        tagColor: {
+            textColor: '#327b2c',
+            borderColor: '#92e681',
+            bgColor: '#eaffe6',
+        },
+        onChange: function(values) {
+            console.log(values)
+        }
+    })
+    
+    
+
+    new MultiSelectTag('Multiselect2', {
+        rounded: true,    // default true
+        shadow: true,      // default false
+        placeholder: 'Search',  // default Search...
+        tagColor: {
+            textColor: '#327b2c',
+            borderColor: '#92e681',
+            bgColor: '#eaffe6',
+        },
+        onChange: function(values) {
+            console.log(values)
+        }
+    })
+    
+    new MultiSelectTag('Multiselect3', {
+        rounded: true,    // default true
+        shadow: true,      // default false
+        placeholder: 'Search',  // default Search... 
+        tagColor: {
+            textColor: '#327b2c',
+            borderColor: '#92e681',
+            bgColor: '#eaffe6',
+        },
+        
+        onChange: function(values) {
+            console.log(values)
+        }
+    })
+    
+    new MultiSelectTag('Multiselect4', {
+        rounded: true,    // default true
+        shadow: true,      // default false
+        placeholder: 'Search',  // default Search...
+        tagColor: {
+            textColor: '#327b2c',
+            borderColor: '#92e681',
+            bgColor: '#eaffe6',
+        },
+        onChange: function(values) {
+            console.log(values)
+        }
+    })
+</script>
+
+</div>
+<script>
+    // Add event listener to the form
+    document.getElementById("checkboxForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get the checked checkboxes
+        var checkedCheckboxes = [];
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        checkboxes.forEach(function(checkbox) {
+            checkedCheckboxes.push(checkbox.name);
+        });
+
+        // Send checkbox status to the server
+        fetch('/update_status', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(checkedCheckboxes),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            alert('Checkbox status updated successfully');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Add event listener to toggle buttons for expand/collapse functionality
+    var toggleButtons = document.querySelectorAll('.toggle-button');
+    toggleButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var ul = this.parentNode.querySelector('ul');
+            if (ul) {
+                var isVisible = ul.style.display !== 'none';
+                ul.style.display = isVisible ? 'none' : 'block';
+                this.textContent = isVisible ? '+' : '-';
+            }
+        });
+    });
+
+    // Add event listener to parent checkboxes for selecting/deselecting children checkboxes
+    var parentCheckboxes = document.querySelectorAll('.parent');
+    parentCheckboxes.forEach(function(parentCheckbox) {
+        parentCheckbox.addEventListener('change', function() {
+            var isChecked = this.checked;
+            var ul = this.parentNode.querySelector('ul');
+            if (ul) {
+                var childCheckboxes = ul.querySelectorAll('input[type="checkbox"]');
+                childCheckboxes.forEach(function(childCheckbox) {
+                    childCheckbox.checked = isChecked;
+                });
+            }
+        });
+    });
+
+   
+
+</script>
+</body>
+</html>
