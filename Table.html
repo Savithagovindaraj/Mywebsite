@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: oldlace;
+        }
+        td:first-child,
+        th:first-child{
+            position: sticky;
+            left: 0;
+            z-index: 3;
+        }
+        td:nth-child(2),
+        th:nth-child(2) {
+            position: sticky;
+            z-index: 1; /* Ensures the first three headers are above the rest */
+            left :100px;
+            
+          }
+        td:nth-child(3),
+        th:nth-child(3) {
+            position: sticky;
+            z-index: 1; /* Ensures the first three headers are above the rest */
+            left :200px;
+          }
+          th:first-child,
+          th:nth-child(2),
+          th:nth-child(3){
+            z-index: 3;
+          }
+        .table-container{
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }
+        .rgb {
+            position: sticky;
+            top:0;
+            left: 0px;
+            z-index: 1;
+            background-color: rgb(216, 216, 247);
+        }
+        
+        .blue {
+            
+            background-color: rgb(204, 192, 54);
+        }
+        th.ver1 {
+            
+            writing-mode: vertical-rl; /* Vertical text from left to right */
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #d1dc81;
+        }
+        .red {
+            
+            background-color: rgb(252, 167, 167);
+        }
+        th.ver2 {
+           
+            writing-mode: vertical-lr; 
+            transform: rotate(180deg);
+            text-align: left;
+            background-color: #f8caca;
+        }
+        .green {
+          
+            background-color: rgb(176, 252, 176);
+        }
+        th.ver3 {
+           
+            writing-mode: vertical-lr; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #caf8d3;
+        }
+        .yellow{
+
+            background-color: rgb(166, 230, 252);
+        }
+        th.ver4 {
+          
+            writing-mode: vertical-rl;
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #cdf8f5;
+        }
+
+        .brown{
+           
+            background-color: rgb(255, 164, 228);
+        }
+        th.ver5 {
+          
+            writing-mode: vertical-rl; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #f8ccf5;
+        }
+
+        .lightblue{
+          
+            background-color: rgb(210, 162, 255);
+        }
+        th.ver6 {
+            
+            writing-mode: vertical-rl; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #e7caf7;
+        }
+        .del{
+            background-color: rgb(248, 133, 133);
+        }
+        th.ver7 {
+           
+            writing-mode: vertical-rl; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #f7d4ca;
+        }
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#newrows").click(function(){
+                var addcontrols = "<tr align='center'>"
+            addcontrols += "<td class='rgb'><input type='text'></td>"
+            addcontrols += "<td class='rgb'><input type='text'></td>"
+            addcontrols += "<td class='rgb'><select><option>Select</option><option>Austria</option><option>Canada</option><option>Chile</option><option>China</option><option>Colombia</option><option>Ecuador</option><option>Egypt</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>India</option><option>Italy</option><option>Malta</option><option>Norway</option><option>Poland</option><option>Portugal</option><option>Scotland</option><option>SPAIN</option><option>Switzerland</option><option>UK</option><option>USA</option><option>Vietnam</option></select></td>";
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><input type='checkbox'></td>"
+            addcontrols += "<td><button class='delete-button' onclick='deleteRow(this)'>Delete</button></td>"
+                addcontrols += "</tr>";
+                $("table tbody").append(addcontrols);
+            });
+        });
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode; // Get the row containing the button
+            row.parentNode.removeChild(row); // Remove the row
+        }
+    </script>
+</head>
+<body>
+    <div class="table-container">
+        <div class="scroll">
+            <table border="2">
+                <thead>
+                    <tr align="center">
+                        <div><th rowspan="4" class="rgb">Manufacturing Site Name</th></div>
+                        <div><th rowspan="4" class="rgb">Address of the Manufacturing Site</th></div>
+                        <div><th rowspan="4" class="rgb" >Country</th></div>
+                        <div><th rowspan="3" colspan="11" class="blue">Offered Services</th></div>
+                        <div><th rowspan="3" colspan="13"  class="red">Manufactured product types</th></div>
+                        <div><th rowspan="3" colspan="6"  class="green">Accreditations</th></div>
+                        <div><th colspan="36"  class="yellow">Bulk Production</th></div>
+                        <div><th rowspan="2" colspan="6"  class="brown">Primary Packaging</th></div>
+                        <div><th rowspan="3" colspan="14"  class="lightblue">Secondary Packaging</th></div>
+                    </tr>
+                    <tr align="center">
+                        <div><th colspan="13" class="yellow">Sterile</th></div>
+                        <div><th colspan="23" class="yellow">Non-Sterile</th></div>				
+                    </tr>
+                    <tr align="center">
+                        <div><th colspan="9" class="yellow">Liquide</th></div>
+                        <div><th colspan="4" class="yellow">Lyophilized</th></div>
+                        <div><th colspan="6" class="yellow">Liquide</th></div>
+                        <div><th colspan="11" class="yellow">Solid</th></div>
+                        <div><th colspan="6" class="yellow">Semi-Solid</th></div>
+                        <div><th rowspan="1" colspan="6" class="brown">Solids/Semi-solids</th></div>
+                    </tr>
+                    <tr align="center"> 
+                        <th class="ver1">GMP Warehouse</th>
+                        <th class="ver1">GDP Warehouse</th>
+                        <th class="ver1">QC Lab - Micro</th>
+                        <th class="ver1">QC Lab - Phisical/Chemical</th>
+                        <th class="ver1">QC Lab - Biological</th>
+                        <th class="ver1">QP Release</th>
+                        <th class="ver1">Development/ Pilot Production</th>
+                        <th class="ver1">API production</th>
+                        <th class="ver1">Bulk Production</th>
+                        <th class="ver1">Packaging</th>
+                        <th class="ver1">Other*</th>
+                        <th class="ver2">Biologics</th>
+                        <th class="ver2">Chemical</th>
+                        <th class="ver2">Herbal</th>
+                        <th class="ver2">Vaccines</th>
+                        <th class="ver2">Onco/ Cytotoxic</th>
+                        <th class="ver2">Hormons</th>
+                        <th class="ver2">Probiotics</th>
+                        <th class="ver2">Cosmetics</th>
+                        <th class="ver2">Beta Lactam</th>
+                        <th class="ver2">Food Supplements</th>
+                        <th class="ver2">VET - Veterinarian</th>
+                        <th class="ver2">Narcotics</th>
+                        <th class="ver2">Other*</th>
+                        <th class="ver3">EMA approval</th>
+                        <th class="ver3">FDA approval</th>
+                        <th class="ver3">ISO 13485</th>
+                        <th class="ver3">EU GMP </th>
+                        <th class="ver3">FSSC 22000</th>
+                        <th class="ver3">Other*</th>
+                        <th class="ver4">Vials</th>
+                        <th class="ver4">Syrings</th>
+                        <th class="ver4">Ampouls</th>
+                        <th class="ver4">Spray</th>
+                        <th class="ver4">Drops</th>
+                        <th class="ver4">Single dose</th>
+                        <th class="ver4">Bottles</th>
+                        <th class="ver4">Ophthalmic Ointments</th>
+                        <th class="ver4">Other*</th>
+                        <th class="ver4">Vials</th>
+                        <th class="ver4">Ampouls</th>
+                        <th class="ver4">Bottles</th>
+                        <th class="ver4">Other*</th>
+                        <th class="ver4">Drops</th>
+                        <th class="ver4">Bottles</th>
+                        <th class="ver4">Spray</th>
+                        <th class="ver4">Sache</th>
+                        <th class="ver4">Syrup</th>
+                        <th class="ver4">Other*</th>
+                        <th class="ver4">Tablets</th>
+                        <th class="ver4">Film Coated Tablets</th>
+                        <th class="ver4">Bi-/Multi-layer Tablets</th>
+                        <th class="ver4">Sugar Coated Tablets</th>
+                        <th class="ver4">Effervescent Tablets</th>
+                        <th class="ver4">ODT - Orally Disintegrating Tablets</th>
+                        <th class="ver4">Pallets</th>
+                        <th class="ver4">Powder</th>
+                        <th class="ver4">Capsules</th>
+                        <th class="ver4">Granulates</th>
+                        <th class="ver4">Other*</th>
+                        <th class="ver4">Ointment</th>
+                        <th class="ver4">Cream</th>
+                        <th class="ver4">Soft Capsules</th>
+                        <th class="ver4">Gels</th>
+                        <th class="ver4">Suppositories</th>
+                        <th class="ver4">Other*</th>
+                        <th class="ver5">Bottles</th>
+                        <th class="ver5">Blisters</th>
+                        <th class="ver5">Sache</th>
+                        <th class="ver5">Sticks</th>
+                        <th class="ver5">Tubes</th>
+                        <th class="ver5">Other*</th>
+                        <th class="ver6">Bottles</th>
+                        <th class="ver6">Blisters</th>
+                        <th class="ver6">Sache</th>
+                        <th class="ver6">Spray</th>
+                        <th class="ver6">Syrings</th>
+                        <th class="ver6">Single dose</th>
+                        <th class="ver6">Ampouls</th>
+                        <th class="ver6">Plastic vials</th>
+                        <th class="ver6">Glass vials</th>
+                        <th class="ver6">Tubes</th>
+                        <th class="ver6">Suppositories</th>
+                        <th class="ver6">Bundling Packs</th>
+                        <th class="ver6">Hospital packs</th>
+                        <th class="ver6">Other*</th>
+                        <th class="var7">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><input type="button" value="Add New Row" id="newrows"></td> 
+                        <td><input type="button" value="Save & Submit"></td> 
+                    </tr>
+                </tfoot>        
+            </table>
+        </div>
+    </div>
+</body>
+
+
+
+<!-- 
+
+td th:nth-child(1){
+    width:60px;
+    text-align: center;
+}
+td th:nth-child(2){
+    width:60px;
+    text-align: center;
+}
+td th:nth-child(3){
+    width:60px;
+    text-align: center;
+} -->
+
+
+
+
+
+<!-- 
+.table-container th:nth-child(1),
+.table-container td:nth-child(1){
+    position: sticky;
+    left:0px;
+    
+}
+.table-container th:nth-child(2),
+.table-container td:nth-child(2){
+    position: sticky;
+    left:162px;
+    
+}
+.table-container td:nth-child(1),
+.table-container td:nth-child(2){
+    z-index: 2;
+} -->
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- function checkFirstThreeColumns() {
+    var table = document.getElementById("data-table");
+    var rows = table.getElementsByTagName("tr");
+
+    for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        var hasData = false;
+
+        // Check the first three cells in each row
+        for (var j = 0; j < 3; j++) {
+            if (cells[j].textContent.trim() !== "") {
+                hasData = true;
+                break;
+            }
+        }
+
+        if (!hasData) {
+            alert("Row " + (i + 1) + " does not contain data in the first three columns.");
+            return;
+        }
+    }
+
+    alert("All rows contain data in the first three columns.");
+} -->
+
+
+
+
+<!-- <style>
+        body{
+            background-color: oldlace;
+        }
+        .table-container{
+            max-width: fit-content;
+            max-height: fit-content;
+        }
+        .table-container{
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }
+        .table-container table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-container th{
+            text-align: center;
+            border-right: 1px solid #111111;
+            padding: 5px;
+            width: fit-content;
+            min-width: fit-content;
+            position: sticky;
+            top: 0;
+            color: #0c0c0c;
+            font-weight: normal;
+        }
+        .table-container td{
+            border-right: 1px solid #141313;
+            border-bottom: 1px solid #050505;
+            padding: 5px;
+            width: fit-content;
+            min-width: fit-content;
+        }       
+        .table-container th:nth-child(1),
+        .table-container th:nth-child(2),
+        .table-container th:nth-child(3) {
+            z-index: 1;
+            position: sticky;
+        }
+        .table-container th:nth-child(1),
+        .table-container td:nth-child(1) {
+            left: 0;
+        }
+        .table-container th:nth-child(2),
+        .table-container td:nth-child(2) {
+            /* 1st cell left/right padding + 1st cell width + 1st cell left/right border width */
+            /* 0 + 5 + 150 + 5 + 1 */
+            left: 100px;
+        }
+        .table-container th:nth-child(3),
+        .table-container td:nth-child(3) {
+            left: 200px;
+        }
+        .rgb {
+            background-color: rgb(216, 216, 247);
+        }
+        
+        .blue {
+        
+            background-color: rgb(204, 192, 54);
+        }
+        th.ver1 {
+            
+            writing-mode: vertical-rl; /* Vertical text from left to right */
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #d1dc81;
+        }
+        .red {
+            
+            background-color: rgb(252, 167, 167);
+        }
+        th.ver2 {
+           
+            writing-mode: vertical-lr; 
+            transform: rotate(180deg);
+            text-align: left;
+            background-color: #f8caca;
+        }
+        .green {
+          
+            background-color: rgb(176, 252, 176);
+        }
+        th.ver3 {
+           
+            writing-mode: vertical-lr; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #caf8d3;
+        }
+        .yellow{
+
+            background-color: rgb(166, 230, 252);
+        }
+        th.ver4 {
+          
+            writing-mode: vertical-rl;
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #cdf8f5;
+        }
+
+        .brown{
+           
+            background-color: rgb(255, 164, 228);
+        }
+        th.ver5 {
+          
+            writing-mode: vertical-rl; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #f8ccf5;
+        }
+
+        .lightblue{
+          
+            background-color: rgb(210, 162, 255);
+        }
+        th.ver6 {
+            
+            writing-mode: vertical-rl; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #e7caf7;
+        }
+        .del{
+            background-color: rgb(248, 133, 133);
+        }
+        th.ver7 {
+           
+            writing-mode: vertical-rl; 
+            text-align: left ;
+            transform: rotate(180deg);
+            background-color: #f7d4ca;
+        }
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style> -->
